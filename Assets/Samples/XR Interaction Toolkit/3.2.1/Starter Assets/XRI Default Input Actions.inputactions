@@ -1299,7 +1299,7 @@
                 {
                     "name": "",
                     "id": "5e9ef821-b9bb-4bf6-9c04-4bf95b06435d",
-                    "path": "<XRController>{LeftHand}/secondaryButton",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

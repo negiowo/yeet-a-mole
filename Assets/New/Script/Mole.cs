@@ -30,6 +30,7 @@ public class Mole : MonoBehaviour
     private MoleAnimationController animationController;
     private float timer = 0f;
     private bool isBlinking = false;
+    private bool alreadyHit = false;
 
     void Start()
     {
@@ -149,6 +150,11 @@ public class Mole : MonoBehaviour
 
     public void OnHit()
     {
+        // prevent from being called multiple times in one frame
+        if (alreadyHit)
+            return;
+        alreadyHit = true;
+
         if (HitSound != null)
         {
             AudioSource.PlayClipAtPoint(HitSound, transform.position, 1f);
@@ -159,11 +165,21 @@ public class Mole : MonoBehaviour
             Instantiate(moleBall, transform.position + Vector3.up, transform.rotation);
         }
 
+        if (worldVariable.tutorialStage == 1 || worldVariable.tutorialStage == 2)
+        {
+            worldVariable.tutorialRoomClear = true;
+        }
+
         Destroy(gameObject);
     }
 
     public void Explode()
     {
+        // prevent from being called multiple times in one frame
+        if (alreadyHit)
+            return;
+        alreadyHit = true;
+
         // Damage player
         if (worldVariable != null)
         {
@@ -182,6 +198,11 @@ public class Mole : MonoBehaviour
             Instantiate(explodeEffect, transform.position, Quaternion.identity);
         }
 
+        if (!worldVariable.tutorialRoom2Exploded)
+        {
+            worldVariable.tutorialRoom2Exploded = true;
+        }
+        
         Destroy(gameObject);
     }
 }

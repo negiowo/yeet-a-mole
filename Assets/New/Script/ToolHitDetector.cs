@@ -1,7 +1,9 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
+using static UnityEditor.PlayerSettings;
 
 public class ToolHitDetector : MonoBehaviour
 {
@@ -33,7 +35,9 @@ public class ToolHitDetector : MonoBehaviour
 
     private AudioSource audioSource;
     private Vector3 lastPosition;
-    private Vector3 velocity;
+    private Vector3 velocity; 
+    private bool canHit = true;
+    public float hitCooldown = 0.5f;
 
     private void Awake()
     {
@@ -148,21 +152,28 @@ public class ToolHitDetector : MonoBehaviour
             Mole m = other.GetComponent<Mole>();
             if (m != null)
             {
-                if (m.isExplosive && swingType == SwingType.DownOnly)
+                if (m.isExplosive && swingType == SwingType.DownOnly)  // hitting explosive with a bat
                 {
                     m.Explode();
                 }
-                else
+                else if (m.isExplosive && swingType == SwingType.UpOnly)  // digging explosive with a shovel
+                {
+                    m.OnHit();
+                }
+                else if (!m.isExplosive && swingType == SwingType.DownOnly)  // hitting normal mole with a bat
                 {
                     m.OnHit();
                 }
             }
         }
         // ------------------------------------------------------------------------------------
-        // ForwardOnly: bat physics for MoleBall AND spitter projectiles
+        // ForwardOnly: racket physics for MoleBall AND spitter projectiles
         // ------------------------------------------------------------------------------------
         else
         {
+            // 0.5s cooldown between each hit
+            if (!canHit) return;
+
             // Get rigidbody on the hit object
             Rigidbody rb = other.attachedRigidbody;
             if (rb == null)
@@ -174,11 +185,17 @@ public class ToolHitDetector : MonoBehaviour
 
             rb.linearVelocity = dir * launchSpeed;
 
+            //canHit = false;
+            //StartCoroutine(HitCooldown());
+
             // If it's a MoleBall, set its yeet state (same as before)
             MoleBall moleBall = other.GetComponent<MoleBall>();
             if (moleBall != null)
             {
                 moleBall.yeeted();
+
+                // prevents double collision
+                //IgnoreFor(other, 2f);
             }
 
             // If it's a spitter projectile, mark it as reflected and reuse same velocity
@@ -186,7 +203,28 @@ public class ToolHitDetector : MonoBehaviour
             if (proj != null)
             {
                 proj.SetReflected(dir * launchSpeed);
+
+                // prevents double collision
+                //IgnoreFor(other, 2f);
             }
         }
+    }
+
+    public void IgnoreFor(Collider target, float seconds)
+    {
+        StartCoroutine(IgnoreRoutine(target, seconds));
+    }
+
+    private IEnumerator IgnoreRoutine(Collider ball, float seconds)
+    {
+        Physics.IgnoreCollision(GetComponent<Collider>(), ball, true);
+        yield return new WaitForSeconds(seconds);
+        Physics.IgnoreCollision(GetComponent<Collider>(), ball, false);
+    }
+
+    IEnumerator HitCooldown()
+    {
+        yield return new WaitForSeconds(hitCooldown);
+        canHit = true;
     }
 }

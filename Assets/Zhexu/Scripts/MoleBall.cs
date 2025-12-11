@@ -6,7 +6,10 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 public class MoleBall : MonoBehaviour
 {
     public enum BallState { Spawning, Held, Thrown, ReadyToYeet, Yeeted }
-    
+
+    private WorldVariable worldVariable;
+    private Collider racketCol;
+
     [Header("Status")]
     public BallState currentState = BallState.Spawning;
     public int damage = 1;
@@ -31,6 +34,22 @@ public class MoleBall : MonoBehaviour
         }
         
         currentState = BallState.Spawning;
+
+        // find the world variable holder object
+        worldVariable = FindFirstObjectByType<WorldVariable>();
+
+        // find the racket's collider
+        GameObject racketObj = GameObject.FindGameObjectWithTag("Racket");
+        if (racketObj != null)
+        {
+            racketCol = racketObj.GetComponent<Collider>();
+        }
+
+        // ignore racket collision by default
+        //if (racketCol != null)
+        //{
+        //    Physics.IgnoreCollision(racketCol, GetComponent<Collider>(), true);
+        //}
     }
 
     void Awake()
@@ -63,16 +82,23 @@ public class MoleBall : MonoBehaviour
         {
             ActivateYeetState();
         }
+
+        //Debug.Log($"Ball '{name}' collided with {collision.collider.name} ");
     }
 
     void ActivateYeetState()
     {
         currentState = BallState.ReadyToYeet;
-        Debug.Log("Ball is READY TO YEET!");
+        // Debug.Log("Ball is READY TO YEET!");
         
         // Visual feedback: change color
         if (readyMat != null) rend.material = readyMat;
-        
+
+        // Enable collision with racket when ready to yeet
+        //if (racketCol != null)
+        //{
+        //    Physics.IgnoreCollision(racketCol, GetComponent<Collider>(), false);
+        //}
     }
 
     public void yeeted()
@@ -81,5 +107,8 @@ public class MoleBall : MonoBehaviour
 
         // Visual feedback: change color
         if (yeetMat != null) rend.material = yeetMat;
+
+        // In the actual level, yeeted balls disappear in 3 seconds to prevent overflowing objects in scene
+        if (worldVariable.tutorialStage > 4) Destroy(gameObject, 3f);
     }
 }

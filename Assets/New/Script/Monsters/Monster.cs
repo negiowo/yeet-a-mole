@@ -43,7 +43,8 @@ public class Monster : TutorialDummy
     {
         Walker,
         Spitter,
-        Tank
+        Tank,
+        Boss
     }
 
     protected override void Start()
@@ -229,6 +230,14 @@ public class Monster : TutorialDummy
         {
             TakeDamage(ball.damage);
             Destroy(ball.gameObject);
+        }
+
+        SimpleProjectile proj = collision.gameObject.GetComponent<SimpleProjectile>();
+
+        if (proj != null && proj.isReflected())
+        {
+            TakeDamage(proj.damageToMonster);
+            Destroy(proj.gameObject);
         }
     }
 

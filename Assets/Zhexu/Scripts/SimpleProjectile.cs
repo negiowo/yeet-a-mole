@@ -113,4 +113,9 @@ public class SimpleProjectile : MonoBehaviour
             }
         }
     }
+
+    public bool isReflected()
+    {
+        return state == ProjectileState.Reflected;
+    }
 }

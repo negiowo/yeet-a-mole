@@ -138,7 +138,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &6863410756120252136
@@ -280,6 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea48f5734b8f44e87ec3af93af8053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoleBall
+  worldVariable: {fileID: 7765102275113374071, guid: 13a70a239660c0f4781564a3168ddec9, type: 3}
+  racketCol: {fileID: 3213356258761328715, guid: cdd8d65603c7abd4f94b3d6517596370, type: 3}
   currentState: 0
   damage: 1
   normalMat: {fileID: 2100000, guid: 2520d997ad8a34d4bbd0f39ca42d75d4, type: 2}

@@ -7,6 +7,7 @@ public class TutorialDummy : MonoBehaviour
     public bool isShooter = false;
     public GameObject projectilePrefab;
     public Transform firePoint;
+    public WorldVariable worldVar;
 
     [Header("Shooting Settings")]
     public float shootInterval = 3f;
@@ -47,7 +48,15 @@ public class TutorialDummy : MonoBehaviour
             TakeDamage(ball.damage);
             Destroy(ball.gameObject);
         }
-    }
+
+        SimpleProjectile proj = collision.gameObject.GetComponent<SimpleProjectile>();
+
+        if (proj != null && proj.isReflected())
+        {
+            TakeDamage(proj.damageToMonster);
+            Destroy(proj.gameObject);
+        }
+     }
 
 
     public virtual void TakeDamage(int damage)
@@ -64,6 +73,7 @@ public class TutorialDummy : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (worldVar != null) worldVar.tutorialRoomClear = true;
         Debug.Log("Dummy Defeated!");
         gameObject.SetActive(false);
     }

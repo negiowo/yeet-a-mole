@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class RoomTeleporter : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class RoomTeleporter : MonoBehaviour
     public Transform destinationD;
 
     public WorldVariable worldVariable;
+
+    public string levelSceneName = "LevelScene";
 
     private void OnEnable()
     {
@@ -32,24 +35,31 @@ public class RoomTeleporter : MonoBehaviour
     {
         if (xrOrigin != null && worldVariable != null)
         {
-            if (worldVariable.tutorialStage == 1)
+            if (worldVariable.tutorialStage == 1 && worldVariable.tutorialRoomClear)
             {
                 xrOrigin.transform.position = destinationB.position;
                 xrOrigin.transform.rotation = destinationB.rotation;
+                worldVariable.tutorialRoomClear = false;
                 worldVariable.tutorialStage += 1;
             } 
-            else if (worldVariable.tutorialStage == 2)
+            else if (worldVariable.tutorialStage == 2 && worldVariable.tutorialRoomClear)
             {
                 xrOrigin.transform.position = destinationC.position;
                 xrOrigin.transform.rotation = destinationC.rotation;
+                worldVariable.tutorialRoomClear = false;
                 worldVariable.tutorialStage += 1;
             }
-            else if (worldVariable.tutorialStage == 3)
+            else if (worldVariable.tutorialStage == 3 && worldVariable.tutorialRoomClear)
             {
                 xrOrigin.transform.position = destinationD.position;
                 xrOrigin.transform.rotation = destinationD.rotation;
+                worldVariable.tutorialRoomClear = false;
                 worldVariable.tutorialStage += 1;
             }
+            //else if (worldVariable.tutorialStage == 4 && worldVariable.tutorialRoomClear)
+            //{
+            //    SceneManager.LoadScene(levelSceneName);
+            //}
         }
     }
 }

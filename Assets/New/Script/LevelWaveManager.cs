@@ -9,6 +9,7 @@ public class Wave
     public int basicCount;
     public int spitterCount;
     public int tankCount;
+    public bool bossWave;
     public float spawnInterval = 2f;
 }
 
@@ -22,6 +23,7 @@ public class LevelWaveManager : MonoBehaviour
     public GameObject walkerPrefab;
     public GameObject spitterPrefab;
     public GameObject tankPrefab;
+    public GameObject bossPrefab;
 
     [Header("Spawn Settings")]
     public Transform pipe;               // The player ring/center
@@ -106,6 +108,12 @@ public class LevelWaveManager : MonoBehaviour
         {
             SpawnMonster(tankPrefab);
             yield return new WaitForSeconds(wave.spawnInterval);
+        }
+
+        // Spawn boss
+        if (wave.bossWave)
+        {
+            SpawnMonster(bossPrefab);
         }
 
         isSpawning = false;
@@ -210,5 +218,21 @@ public class LevelWaveManager : MonoBehaviour
     public bool AreAllWavesComplete()
     {
         return allWavesComplete;
+    }
+
+    public void bossSummon(int walkerNum, int tankNum, int spitterNum)
+    {
+        for (int i = 0; i < walkerNum; i++)
+        {
+            SpawnMonster(walkerPrefab);
+        }
+        for (int i = 0; i < tankNum; i++)
+        {
+            SpawnMonster(tankPrefab);
+        }
+        for (int i = 0; i < spitterNum; i++)
+        {
+            SpawnMonster(spitterPrefab);
+        }
     }
 }

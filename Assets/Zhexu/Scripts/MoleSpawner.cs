@@ -50,11 +50,19 @@ public class MoleSpawner : MonoBehaviour
         {
             // Instantiate the mole and store its reference in currentMole
             currentMole = Instantiate(prefabToUse, spawnPoint.position, spawnPoint.rotation);
+            Debug.Log($"SpawnMole called for {name}", this);
         }
     }
 
     void ResetTimer()
     {
         cooldownTimer = Random.Range(minSpawnTime, maxSpawnTime);
+    }
+
+    public void bossSummonExplosive()
+    {
+        Destroy(currentMole);
+        currentMole = Instantiate(moleExplosivePrefab, spawnPoint.position, spawnPoint.rotation);
+        ResetTimer();
     }
 }

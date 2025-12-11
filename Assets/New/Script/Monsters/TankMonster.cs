@@ -122,6 +122,14 @@ public class TankMonster : Monster
         {
             HandleBallHit(ball);
         }
+
+        SimpleProjectile proj = collision.gameObject.GetComponent<SimpleProjectile>();
+
+        if (proj != null && proj.isReflected())
+        {
+            TakeDamage(proj.damageToMonster);
+            Destroy(proj.gameObject);
+        }
     }
 
     // Handle ball hits (separate from TutorialDummy's OnCollisionEnter)
