@@ -798,15 +798,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab
@@ -11924,15 +11924,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab
@@ -13112,15 +13112,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab
@@ -14111,10 +14111,10 @@ MonoBehaviour:
     bossWave: 0
     spawnInterval: 15
   - waveNumber: 1
-    basicCount: 0
-    spitterCount: 0
+    basicCount: 1
+    spitterCount: 1
     tankCount: 0
-    bossWave: 1
+    bossWave: 0
     spawnInterval: 15
   - waveNumber: 3
     basicCount: 1
@@ -16080,15 +16080,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab
@@ -16678,7 +16678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917674758326848207, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: field of view
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7981564641127861966, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Enabled
@@ -18214,15 +18214,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab
@@ -21740,15 +21740,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: maxSpawnTime
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: minSpawnTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: explosiveChance
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1625995374061334599, guid: 5f2b99e9e3dc95342a44d8bf2341c8ce, type: 3}
       propertyPath: moleNormalPrefab

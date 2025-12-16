@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YEET A MOLE
+  m_text: YEET-A-MOLE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68bdc6dedb2c9b544a86eda3bbc56283, type: 2}
   m_sharedMaterial: {fileID: -5518005483554945302, guid: 68bdc6dedb2c9b544a86eda3bbc56283, type: 2}
@@ -3070,6 +3070,7 @@ MonoBehaviour:
   destinationC: {fileID: 0}
   destinationD: {fileID: 0}
   worldVariable: {fileID: 1832034326}
+  levelSceneName: LevelScene
 --- !u!4 &597026423
 Transform:
   m_ObjectHideFlags: 0
@@ -7028,7 +7029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917674758326848207, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: field of view
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7981564641127861966, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Enabled
@@ -8389,8 +8390,8 @@ MonoBehaviour:
   bat: {fileID: 0}
   shovel: {fileID: 0}
   racket: {fileID: 0}
+  toolSwap: {fileID: 0}
   batAction: {fileID: 492760172859716471, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  shovelAction: {fileID: 507487427137038120, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   racketAction: {fileID: 4675627877497017508, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1652642417 stripped
 Transform:
@@ -9880,6 +9881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WorldVariable
   playerHealth: 5
   tutorialStage: 1
+  tutorialRoomClear: 0
+  tutorialRoom2Exploded: 0
+  tutorialRoom3RacketOut: 0
 --- !u!4 &1832034327
 Transform:
   m_ObjectHideFlags: 0

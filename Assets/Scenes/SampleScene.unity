@@ -9402,7 +9402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7917674758326848207, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: field of view
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7981564641127861966, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_Enabled
@@ -10788,6 +10788,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1299897175}
     m_Modifications:
     - target: {fileID: 5797451811394270148, guid: 4dbe746fa165c6b4dbeb0088fadff533, type: 3}
+      propertyPath: worldVar
+      value: 
+      objectReference: {fileID: 1832034326}
+    - target: {fileID: 5797451811394270148, guid: 4dbe746fa165c6b4dbeb0088fadff533, type: 3}
       propertyPath: worldVariable
       value: 
       objectReference: {fileID: 1832034326}
@@ -11950,7 +11954,6 @@ MonoBehaviour:
   bat: {fileID: 1278773137}
   shovel: {fileID: 532424238}
   racket: {fileID: 381473016}
-  worldVariable: {fileID: 1832034326}
   toolSwap: {fileID: 507487427137038120, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   batAction: {fileID: 492760172859716471, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   racketAction: {fileID: 4675627877497017508, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -14766,6 +14769,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 899153734}
     m_Modifications:
+    - target: {fileID: 5797451811394270148, guid: 4dbe746fa165c6b4dbeb0088fadff533, type: 3}
+      propertyPath: worldVar
+      value: 
+      objectReference: {fileID: 1832034326}
     - target: {fileID: 5797451811394270148, guid: 4dbe746fa165c6b4dbeb0088fadff533, type: 3}
       propertyPath: firePoint
       value: 

@@ -1,9 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.InputSystem;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
-using static UnityEditor.PlayerSettings;
 
 public class ToolHitDetector : MonoBehaviour
 {

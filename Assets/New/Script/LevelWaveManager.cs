@@ -31,7 +31,7 @@ public class LevelWaveManager : MonoBehaviour
     public float spawnHeight = 5f;     // Height above ground
 
     [Header("Wave Timing")]
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 10f;
     private bool isSpawning = false;
     private bool allWavesComplete = false;
 
